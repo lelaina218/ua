@@ -982,8 +982,8 @@
 ];
     /*DEFAULT_LETTERS_END*/
 
-    let lettersData = JSON.parse(localStorage.getItem('farm_letters_v10')) || defaultLetters;
-    let readIds = new Set(JSON.parse(localStorage.getItem('farm_read_v10') || '[]'));
+    let lettersData = JSON.parse(localStorage.getItem('farm_letters_vua')) || defaultLetters;
+    let readIds = new Set(JSON.parse(localStorage.getItem('farm_read_vua') || '[]'));
 
     /* =====================================================================
        [2] Web Audio API 사운드 시스템
@@ -1833,7 +1833,7 @@
       playBaaSound(1.0);
 
       readIds.add(sheep.id);
-      localStorage.setItem('farm_read_v10', JSON.stringify([...readIds]));
+      localStorage.setItem('farm_read_vua', JSON.stringify([...readIds]));
 
       bubbleAuthor.textContent = `From. ${sheep.data.author}`;
       bubbleSheepType.textContent = sheep.design.label;
@@ -2202,9 +2202,9 @@
       const parsed = readTableData();
       if (parsed.length > 0) {
         lettersData = parsed;
-        localStorage.setItem('farm_letters_v10', JSON.stringify(lettersData));
+        localStorage.setItem('farm_letters_vua', JSON.stringify(lettersData));
         readIds.clear();
-        localStorage.removeItem('farm_read_v10');
+        localStorage.removeItem('farm_read_vua');
         closeBubble();
         initSheeps();
         adminModal.style.display = 'none';
@@ -2216,7 +2216,7 @@
       if (parsed.length === 0) return;
 
       lettersData = parsed;
-      localStorage.setItem('farm_letters_v10', JSON.stringify(lettersData));
+      localStorage.setItem('farm_letters_vua', JSON.stringify(lettersData));
       initSheeps();
 
       const currentDocHtml = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
